@@ -1,4 +1,23 @@
 
+if recent_slope is not None:
+    recent_line_x = np.array([
+        recent_start_year,
+        latest_year
+    ])
+    recent_line_y = (
+        recent_slope * recent_line_x + recent_intercept
+    )
+
+    fig.add_trace(
+        go.Scatter(
+            x=recent_line_x,
+            y=recent_line_y,
+            mode="lines",
+            name="최근 20년 회귀 직선",
+            line=dict(width=3, dash="dash")
+        )
+    )
+
 # -----------------------------
 # 데이터 처리 및 회귀 분석
 # -----------------------------
